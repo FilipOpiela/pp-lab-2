@@ -1,0 +1,23 @@
+import java.util.Scanner;
+public class zad1 {
+
+	public static void main(String[] args) {
+		Scanner new = new Scanner(System.in);
+		
+		System.out.println("Zadanie 1\nPodaj ilosc ocen: ");
+		int ilosc = new.nextInt();
+		float suma = 0;
+		
+		for(int i = 0; i < ilosc; i++) {
+			
+			System.out.println("Podaj wartosc");
+			suma = suma + new.nextFloat();
+			
+		}
+		double srednia = suma / ilosc;
+		
+		System.out.println("Srednia z podanych ocen: " + srednia);
+		
+	}
+
+}
