@@ -1,23 +1,30 @@
 import java.util.Scanner;
-public class zad1 {
+import java.util.Arrays;
+public class zad3 {
 
 	public static void main(String[] args) {
 		Scanner new = new Scanner(System.in);
 		
-		System.out.println("Zadanie 1\nPodaj ilosc ocen: ");
+		System.out.println("Zadanie 2\nPodaj liczbe ocen: ");
 		int ilosc = new.nextInt();
-		float suma = 0;
+		double sm = 0;
+		double sr;
+		double[] tablica = new double[ilosc];
 		
 		for(int i = 0; i < ilosc; i++) {
-			
-			System.out.println("Podaj wartosc");
-			suma = suma + new.nextFloat();
+			System.out.println("Podaj wartosc pod index " + i);
+			tablica[i] = new.nextDouble();}
+		
+		System.out.println("Podane oceny: \n");
+		for(int i = 0 ; i < ilosc; i++) {
+			sm = sm + tablica[i];
+			sr = sm / i;
+			System.out.println(tablica[i] + "   obecna suma: " + sm + "  obecna srednia: " + sr);
 			
 		}
+		double suma = Arrays.stream(tablica).sum();
 		double srednia = suma / ilosc;
-		
-		System.out.println("Srednia z podanych ocen: " + srednia);
-		
-	}
 
+		System.out.println("\nSrednia z podanych ocen: " + srednia);	
+	}
 }
