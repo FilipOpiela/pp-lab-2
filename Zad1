@@ -1,23 +1,53 @@
 import java.util.Scanner;
-public class zad1 {
+import java.util.stream.DoubleStream;
+import java.util.Arrays;
+public class zad5 {
 
 	public static void main(String[] args) {
 		Scanner new = new Scanner(System.in);
 		
-		System.out.println("Zadanie 1\nPodaj ilosc ocen: ");
+		System.out.println("Zadanie 2\nPodaj liczbe ocen: ");
 		int ilosc = new.nextInt();
-		float suma = 0;
+		double sm = 0;
+		double sr;
+		double[] tablica = new double[ilosc];
 		
 		for(int i = 0; i < ilosc; i++) {
-			
-			System.out.println("Podaj wartosc");
-			suma = suma + new.nextFloat();
+			System.out.println("Podaj wartość pod index " + i);
+			double wartosc;
+			wartosc = new.nextDouble();
+			if(wartosc < 0.0 || wartosc > 6.0) {
+				System.out.println("Podana wartosc: " + wartosc+ " jest niepoprawna");
+				i--;
+			}else {
+			tablica[i] = wartosc;}
+		}
+		
+		System.out.println("Podane oceny: \n");
+		for(int i = 0 ; i < ilosc; i++) {
+			sm = sm + tablica[i];
+			sr = sm / i;
+			System.out.println(tablica[i] + "   obecna suma to " + sm + "  obecna srednia to " + sr);
 			
 		}
+		
+		DoubleStream posortowana = Arrays.stream(tablica).sorted();
+		int wielkoscTab = tablica.length;
+		System.out.println("rozmiar tablicy to " + wielkoscTab);
+		
+		double mediana = 0;
+		if(wielkoscTab % 2 == 0) {
+			System.out.println("wymiar tablicy jest parzysty ");
+			mediana = ((tablica[(wielkoscTab/2) - 1] + tablica[(wielkoscTab/2) ]) / 2 );
+		}else if(wielkoscTab % 2 != 0){
+			System.out.println("wymiar tablicy jest parzysty ");
+			mediana = tablica[wielkoscTab/2];
+		}
+		System.out.println("Mediana: " + mediana);
+		
+		double suma = Arrays.stream(tablica).sum();
 		double srednia = suma / ilosc;
-		
-		System.out.println("Srednia z podanych ocen: " + srednia);
-		
-	}
 
+		System.out.println("\nSrednia z podanych ocen: " + srednia);	
+	}
 }
